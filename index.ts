@@ -37,6 +37,6 @@ export async function toJSONSchema<I, O>(type: StandardSchemaV1<I, O> | Schema.S
 
 function unsupported(vendor?: string): never {
   throw new Error(
-    `Vendor ${vendor ? `"${vendor}"` : ""}is not yet supported. Please open an issue in http://github.com/harrysolovay/standard-json-schema/issues.`,
+    `Vendor ${vendor ? `"${vendor}"` : ""}is not yet supported. Please open an issue: http://github.com/harrysolovay/standard-json-schema/issues/new.`,
   )
 }

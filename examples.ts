@@ -6,7 +6,7 @@ import { toJSONSchema } from "./index.js"
 
 console.log(
   "Zod",
-  toJSONSchema(
+  await toJSONSchema(
     z.object({
       a: z.string(),
       b: z.object({
@@ -19,7 +19,7 @@ console.log(
 
 console.log(
   "Arktype",
-  toJSONSchema(
+  await toJSONSchema(
     type({
       a: "string",
       b: {
@@ -45,11 +45,13 @@ console.log(
 
 console.log(
   "Valibot",
-  v.object({
-    a: v.string(),
-    b: v.object({
-      c: v.number(),
+  await toJSONSchema(
+    v.object({
+      a: v.string(),
+      b: v.object({
+        c: v.number(),
+      }),
+      d: v.array(v.boolean()),
     }),
-    d: v.array(v.boolean()),
-  }),
+  ),
 )

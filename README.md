@@ -14,7 +14,7 @@ await toJSONSchema(YourStandardType)
 - [x] [arktype](https://github.com/arktypeio/arktype)
 - [x] [Effect Schema](https://github.com/Effect-TS/effect)
 - [x] [typebox](https://github.com/sinclairzx81/typebox)
-- [ ] [**request another library**](http://github.com/harrysolovay/standard-json-schema/issues)
+- [ ] [**request another library**](http://github.com/harrysolovay/standard-json-schema/issues/new)
 
 ## How?
 
