@@ -16,6 +16,11 @@ await toJSONSchema(YourStandardType)
 - [x] [typebox](https://github.com/sinclairzx81/typebox)
 - [ ] [**request another library**](http://github.com/harrysolovay/standard-json-schema/issues)
 
+## How?
+
+Under the hood, `toJSONSchema` determines the standard type's vendor and
+delegates to vendor-specific producers.
+
 ---
 
 ## **License**
