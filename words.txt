@@ -2,6 +2,7 @@ arktype
 arrirpc
 bunx
 llms
+nodenext
 typebox
 typemap
 valibot

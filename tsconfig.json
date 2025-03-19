@@ -15,7 +15,6 @@
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
     "outDir": "dist",
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
@@ -23,9 +22,8 @@
     "strictFunctionTypes": false,
     "strictNullChecks": true,
     "target": "ESNext",
-    "useDefineForClassFields": true,
-    "verbatimModuleSyntax": true
+    "useDefineForClassFields": true
   },
-  "exclude": ["dist", "node_modules"],
-  "include": ["."]
+  "exclude": ["cjs", "dist", "node_modules"],
+  "include": ["index.ts"]
 }
