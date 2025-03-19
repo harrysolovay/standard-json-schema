@@ -1,6 +1,7 @@
 {
   "name": "standard-json-schema",
   "version": "0.1.0-beta.1",
+  "description": "Turn standard types into JSON schemas",
   "private": false,
   "type": "module",
   "module": "./dist/index.js",
