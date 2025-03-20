@@ -24,6 +24,6 @@
     "target": "ESNext",
     "useDefineForClassFields": true
   },
-  "exclude": ["cjs", "dist", "node_modules"],
+  "exclude": ["cjs", "dist", "examples.ts", "node_modules"],
   "include": ["index.ts"]
 }
