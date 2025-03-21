@@ -9,15 +9,15 @@ export async function toJSONSchema<I, O>(type: StandardSchemaV1<I, O> | Schema.S
     const { vendor } = type["~standard"]
     switch (vendor) {
       case "zod": {
-        return await import("zod-to-json-schema").then(({ zodToJsonSchema }) => zodToJsonSchema(type as ZodType))
+        const { zodToJsonSchema } = await ensureInstalled("zod-to-json-schema", import("zod-to-json-schema"))
+        return zodToJsonSchema(type as ZodType)
       }
       case "arktype": {
         return (type as Arktype).toJsonSchema()
       }
       case "valibot": {
-        return import("@valibot/to-json-schema").then(({ toJsonSchema }) =>
-          toJsonSchema(type as BaseSchema<I, O, BaseIssue<unknown>>),
-        )
+        const { toJsonSchema } = await ensureInstalled("@valibot/to-json-schema", import("@valibot/to-json-schema"))
+        return toJsonSchema(type as BaseSchema<I, O, BaseIssue<unknown>>)
       }
       case "typebox": {
         return type
@@ -27,11 +27,19 @@ export async function toJSONSchema<I, O>(type: StandardSchemaV1<I, O> | Schema.S
       }
     }
   } else {
-    const { Schema } = await import("effect")
+    const { Schema } = await ensureInstalled("effect", import("effect"))
     if (Schema.isSchema(type)) {
       return import("effect/JSONSchema").then((JSONSchema) => JSONSchema.make(type))
     }
     unsupported()
+  }
+}
+
+async function ensureInstalled<T>(dependency: string, pending: Promise<T>) {
+  try {
+    return await pending
+  } catch (e: unknown) {
+    throw new Error(`Could not find module "${dependency}"; please install.`)
   }
 }
 

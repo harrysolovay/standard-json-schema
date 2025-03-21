@@ -1,0 +1,133 @@
+// Bun Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshots 1`] = `
+{
+  "ArktypeType": {
+    "properties": {
+      "a": {
+        "type": "string",
+      },
+      "b": {
+        "properties": {
+          "c": {
+            "type": "number",
+          },
+        },
+        "required": [
+          "c",
+        ],
+        "type": "object",
+      },
+      "d": {
+        "items": {
+          "type": "boolean",
+        },
+        "type": "array",
+      },
+    },
+    "required": [
+      "a",
+      "b",
+      "d",
+    ],
+    "type": "object",
+  },
+  "EffectSchemaType": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+      "a": {
+        "type": "string",
+      },
+      "b": {
+        "additionalProperties": false,
+        "properties": {
+          "c": {
+            "type": "number",
+          },
+        },
+        "required": [
+          "c",
+        ],
+        "type": "object",
+      },
+      "d": {
+        "items": {
+          "type": "boolean",
+        },
+        "type": "array",
+      },
+    },
+    "required": [
+      "a",
+      "b",
+      "d",
+    ],
+    "type": "object",
+  },
+  "ValibotType": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "properties": {
+      "a": {
+        "type": "string",
+      },
+      "b": {
+        "properties": {
+          "c": {
+            "type": "number",
+          },
+        },
+        "required": [
+          "c",
+        ],
+        "type": "object",
+      },
+      "d": {
+        "items": {
+          "type": "boolean",
+        },
+        "type": "array",
+      },
+    },
+    "required": [
+      "a",
+      "b",
+      "d",
+    ],
+    "type": "object",
+  },
+  "ZodType": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "properties": {
+      "a": {
+        "type": "string",
+      },
+      "b": {
+        "additionalProperties": false,
+        "properties": {
+          "c": {
+            "type": "number",
+          },
+        },
+        "required": [
+          "c",
+        ],
+        "type": "object",
+      },
+      "d": {
+        "items": {
+          "type": "boolean",
+        },
+        "type": "array",
+      },
+    },
+    "required": [
+      "a",
+      "b",
+      "d",
+    ],
+    "type": "object",
+  },
+}
+`;

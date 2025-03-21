@@ -4,54 +4,42 @@ import { Schema } from "effect"
 import { z } from "zod"
 import { toJSONSchema } from "./index.js"
 
-console.log(
-  "Zod",
-  await toJSONSchema(
-    z.object({
-      a: z.string(),
-      b: z.object({
-        c: z.number(),
-      }),
-      d: z.boolean().array(),
-    }),
-  ),
-)
+export const ZodType = z.object({
+  a: z.string(),
+  b: z.object({
+    c: z.number(),
+  }),
+  d: z.boolean().array(),
+})
 
-console.log(
-  "Arktype",
-  await toJSONSchema(
-    type({
-      a: "string",
-      b: {
-        c: "number",
-      },
-      d: "boolean[]",
-    }),
-  ),
-)
+console.log("Zod", await toJSONSchema(ZodType))
 
-console.log(
-  "Effect",
-  await toJSONSchema(
-    Schema.Struct({
-      a: Schema.String,
-      b: Schema.Struct({
-        c: Schema.Number,
-      }),
-      d: Schema.Array(Schema.Boolean),
-    }),
-  ),
-)
+export const ArktypeType = type({
+  a: "string",
+  b: {
+    c: "number",
+  },
+  d: "boolean[]",
+})
 
-console.log(
-  "Valibot",
-  await toJSONSchema(
-    v.object({
-      a: v.string(),
-      b: v.object({
-        c: v.number(),
-      }),
-      d: v.array(v.boolean()),
-    }),
-  ),
-)
+console.log("Arktype", await toJSONSchema(ArktypeType))
+
+export const EffectSchemaType = Schema.Struct({
+  a: Schema.String,
+  b: Schema.Struct({
+    c: Schema.Number,
+  }),
+  d: Schema.Array(Schema.Boolean),
+})
+
+console.log("Effect", await toJSONSchema(EffectSchemaType))
+
+export const ValibotType = v.object({
+  a: v.string(),
+  b: v.object({
+    c: v.number(),
+  }),
+  d: v.array(v.boolean()),
+})
+
+console.log("Valibot", await toJSONSchema(ValibotType))
