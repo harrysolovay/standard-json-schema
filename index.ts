@@ -9,8 +9,24 @@ export async function toJSONSchema<I, O>(type: StandardSchemaV1<I, O> | Schema.S
     const { vendor } = type["~standard"]
     switch (vendor) {
       case "zod": {
-        const { zodToJsonSchema } = await ensureInstalled("zod-to-json-schema", import("zod-to-json-schema"))
-        return zodToJsonSchema(type as ZodType)
+        try {
+          // Try to import Zod
+          const z = await import("zod")
+          
+          // Check if it's Zod 4+ with toJSONSchema function
+          if (typeof z.toJSONSchema === "function") {
+            // Using Zod 4+'s built-in toJSONSchema
+            return z.toJSONSchema(type)
+          } else {
+            // Using zod-to-json-schema for Zod 3
+            const { zodToJsonSchema } = await ensureInstalled("zod-to-json-schema", import("zod-to-json-schema"))
+            return zodToJsonSchema(type as ZodType)
+          }
+        } catch (e) {
+          // If Zod import fails, use zod-to-json-schema
+          const { zodToJsonSchema } = await ensureInstalled("zod-to-json-schema", import("zod-to-json-schema"))
+          return zodToJsonSchema(type as ZodType)
+        }
       }
       case "arktype": {
         return (type as Arktype).toJsonSchema()
